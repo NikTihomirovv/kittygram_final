@@ -1,0 +1,40 @@
+version: '3'
+
+volumes:
+  kittygram_pg_data_prod:
+  static_volume_prod:
+  media_volume_prod:
+
+services:
+  db:
+    image: postgres:13.10
+    volumes:
+      - kittygram_pg_data_prod:/var/lib/postgresql/data
+    env_file: .env
+
+  backend:
+    image: niktihomirovv/kittygram_backend
+    env_file: .env
+    depends_on:
+      - db
+    volumes:
+      - static_volume_prod:/backend_static
+      - media_volume_prod:/app/media
+
+  frontend:
+    env_file: .env
+    image: niktihomirovv/kittygram_frontend
+    command: cp -r /app/build/. /frontend_static/
+    volumes:
+      - static_volume_prod:/frontend_static
+  gateway:
+    image: niktihomirovv/kittygram_nginx
+    env_file: .env
+    ports:
+      - 9000:80
+    volumes:
+      - static_volume_prod:/static
+      - media_volume_prod:/app/media
+    depends_on:
+      - backend
+      - frontend
