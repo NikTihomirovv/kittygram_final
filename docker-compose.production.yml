@@ -28,7 +28,7 @@ services:
     volumes:
       - static_volume_prod:/frontend_static
   gateway:
-    image: niktihomirovv/kittygram_nginx
+    image: niktihomirovv/kittygram_gateway
     env_file: .env
     ports:
       - 9000:80

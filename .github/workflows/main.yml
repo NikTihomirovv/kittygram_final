@@ -135,7 +135,7 @@ jobs:
         with:
           context: ./nginx/
           push: true
-          tags: niktihomirovv/kittygram_nginx:latest
+          tags: niktihomirovv/kittygram_gateway:latest
 
 
 
