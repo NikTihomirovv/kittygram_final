@@ -112,7 +112,7 @@ jobs:
         with:
           context: ./frontend/
           push: true
-          tags: niktihomirovv/taski_frontend:latest
+          tags: niktihomirovv/kittygram_frontend:latest
 
 
 
@@ -133,6 +133,6 @@ jobs:
       - name: Push to DockerHub
         uses: docker/build-push-action@v4
         with:
-          context: ./gateway/
+          context: ./nginx/
           push: true
-          tags: niktihomirovv/taski_gateway:latest
+          tags: niktihomirovv/kittygram_nginx:latest
