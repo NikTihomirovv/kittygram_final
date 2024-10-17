@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
 SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key())
 
-DEBUG = bool((os.getenv('DEBUG', False)).lower()) == 'true'
+DEBUG = bool((os.getenv('DEBUG', False)).lower() == 'true')
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(', ')
 
