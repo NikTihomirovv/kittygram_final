@@ -2,8 +2,6 @@ name: Main Kittygram Workflow
 
 on:
   push:
-    branches:
-      - main
 
 jobs:
   tests:
@@ -188,7 +186,6 @@ jobs:
   send_message:
     runs-on: ubuntu-latest
     needs: deploy
-    if: github.ref == 'refs/heads/master'
     steps:
     - name: Send message
       uses: appleboy/telegram-action@master
