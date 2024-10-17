@@ -12,13 +12,13 @@ Kittygram - это сайт с возможностью создания неб�
 
 # Как развернуть проект
 Как развернуть проект с помощью Docker.
-1. Создать директорию: ```python mkdir kittygram```
-2. Перейти в нее: cd kittygram
+1. Создать директорию: ```mkdir kittygram```
+2. Перейти в нее: ```cd kittygram```
 3. Поместить в директорию файл: **docker-compose.production.yml**
-4. Выполнить команду: docker compose -f docker-compose.production.yml up
-5. Собрать статику: docker compose -f docker-compose.production.yml exec backend python manage.py collectstatic
-6. Копировать статику: docker compose -f docker-compose.production.yml exec backend cp -r /app/collected_static/. /backend_static/static/ 
-7. Выполнить миграции: docker compose -f docker-compose.production.yml exec backend python manage.py migrate
+4. Выполнить команду: ```docker compose -f docker-compose.production.yml up```
+5. Собрать статику: ```docker compose -f docker-compose.production.yml exec backend python manage.py collectstatic```
+6. Копировать статику: ```docker compose -f docker-compose.production.yml exec backend cp -r /app/collected_static/. /backend_static/static/``` 
+7. Выполнить миграции: ```docker compose -f docker-compose.production.yml exec backend python manage.py migrate```
 
 # Как заполнить env файл
 Пример заполнения:
